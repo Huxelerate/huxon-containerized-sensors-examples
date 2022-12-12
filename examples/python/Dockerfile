@@ -1,4 +1,4 @@
-FROM amd64/ubuntu:latest
+FROM amd64/ubuntu:jammy
 
 WORKDIR /app
 

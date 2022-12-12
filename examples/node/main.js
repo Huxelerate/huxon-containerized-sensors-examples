@@ -7,8 +7,12 @@ var Message = require('azure-iot-device').Message;
 var msg_counter = 0;
 const LOG_FREQUENCY = 10;
 
-// NOTE: setting the non-IP address hostname for SSL authentication
-process.env.IOTEDGE_GATEWAYHOSTNAME = 'edgehub';
+// The SSL verification step can only be verified if the hostname is provided as
+// a domain name, rather than an IP address.
+// In the case you provided the IP address when creating the Local node, please
+// uncomment the following code
+
+//process.env.IOTEDGE_GATEWAYHOSTNAME = 'edgehub';
 
 ModuleClient.fromEnvironment(Protocol, function (err, client) {
   if (err) {
@@ -46,4 +50,4 @@ function mqttPromise(op) {
   return function printResult(err, res) {
     if (err) console.log(op + ' error: ' + err.toString());
   };
-} 
+}
