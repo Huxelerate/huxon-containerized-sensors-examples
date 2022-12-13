@@ -26,12 +26,16 @@ To develop a custom module, follow the steps below:
 1. Install python dependencies. The preferred python version is 3.9
 
 ```bash
-python3 -m pip install iotedgedev
+python3 -m pip install -r requirements.txt
 ```
 
 2. Create a new development module in the `dev` directory. Select a module name and a template (e.g. c|csharp|java|nodejs|python|csharpfunction)
 
 ```bash
+# In case a nodejs is used, please install the following as well, provided you have npm installed in the system
+npm install -g yo # Yeoman
+npm install -g generator-azure-iot-edge-module
+
 mkdir dev/<custom-module> && cd dev/<custom-module>
 iotedgedev new -m <module-name> -t <template> .
 ```
@@ -53,3 +57,5 @@ sudo iotedgehubdev setup -c "<connection-string>" -g edgehub
 ```bash
 iotedgehubdev start -d config/deployment.amd64.json -v
 ```
+
+Now that everything is setup, you can modify and customize the module with your code, for instance using the code in the examples directory.
