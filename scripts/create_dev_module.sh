@@ -62,7 +62,7 @@ check_vars "${TEMPLATE}" "template type"
 check_vars "${MODULE}" "module name"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-WORK_DIR="${DIR}/dev/${DEST_DIR}"
+WORK_DIR="${DIR}/../dev/${DEST_DIR}"
 echo ${WORK_DIR}
 
 python3 -m virtualenv .env --python=3.9

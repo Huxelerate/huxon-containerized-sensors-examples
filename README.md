@@ -14,8 +14,10 @@ To correctly build the example containers, run the following:
 
 ```bash
 cd examples/<preferred language>
-docker build -t <name of the sensor> -f Dockerfile .
+docker build -t <name of the sensor> -f Dockerfile --build-arg ARCH_TYPE=<architecture type> . 
 ```
+
+Note that the architecture type can be provided as a build argument, and it needs to match the target architecture, where the module will run. E.g. a raspberry is based on ARM, therefore ARCH_TYPE needs to be `arm32v7`.
 
 You may now push the docker image to your private/public registry and use it within the Huxon platform, when defining the corresponding containerized sensor.
 
@@ -28,13 +30,13 @@ To develop a custom module, follow the steps below, or otherwise use the dedicat
 1. Run the module creation step
 
 ```bash
-./create_dev_module.sh -m <module-name> -t <template> -d <destination-dir>
+bash scripts/create_dev_module.sh -m <module-name> -t <template> -d <destination-dir>
 ```
 
 2. Run the module simulation step
 
 ```bash
-./run_dev_module.sh -c <connection-string> -d <destination-dir>
+bash scripts/run_dev_module.sh -c <connection-string> -d <destination-dir>
 ```
 
 ### Manual setup

@@ -1,4 +1,6 @@
-FROM amd64/ubuntu:bionic AS base
+ARG ARCH_TYPE=amd64
+
+FROM ${ARCH_TYPE}/ubuntu:bionic AS base
 RUN apt-get update && \
     apt-get install -y --no-install-recommends software-properties-common && \
     add-apt-repository -y ppa:aziotsdklinux/ppa-azureiot && \

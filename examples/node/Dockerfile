@@ -1,4 +1,6 @@
-FROM amd64/ubuntu:jammy
+ARG ARCH_TYPE=amd64
+
+FROM ${ARCH_TYPE}/ubuntu:jammy
 
 WORKDIR /app
 
