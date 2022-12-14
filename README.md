@@ -21,7 +21,23 @@ You may now push the docker image to your private/public registry and use it wit
 
 ## Develop your own module
 
-To develop a custom module, follow the steps below:
+To develop a custom module, follow the steps below, or otherwise use the dedicated scripts that automate the process.
+
+### Automatic setup
+
+1. Run the module creation step
+
+```bash
+./create_dev_module.sh -m <module-name> -t <template> -d <destination-dir>
+```
+
+2. Run the module simulation step
+
+```bash
+./run_dev_module.sh -c <connection-string> -d <destination-dir>
+```
+
+### Manual setup
 
 1. Install python dependencies. The preferred python version is 3.9
 
@@ -36,7 +52,7 @@ python3 -m pip install -r requirements.txt
 npm install -g yo # Yeoman
 npm install -g generator-azure-iot-edge-module
 
-mkdir dev/<custom-module> && cd dev/<custom-module>
+mkdir dev/<dest-dir> && cd dev/<dest-dir>
 iotedgedev new -m <module-name> -t <template> .
 ```
 
