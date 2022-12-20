@@ -16,8 +16,8 @@
 #include "iothub.h"
 #include "time.h"
 
-#define TEXT_LENGTH 16
-#define LOG_FREQUENCY 10
+#define TEXT_LENGTH 16 // Maximum length of the message that we will send to the output MQTT channel
+#define LOG_FREQUENCY 10 // Frequency at which we want to write the log messages. The frequency is calculated as [#Messages sent] / LOG_FREQUENCY
 
 typedef struct MESSAGE_INSTANCE_TAG
 {

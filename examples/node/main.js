@@ -9,10 +9,9 @@ const LOG_FREQUENCY = 10;
 
 // The SSL verification step can only be verified if the hostname is provided as
 // a domain name, rather than an IP address.
-// In the case you provided the IP address when creating the Local node, please
-// uncomment the following code
-
-//process.env.IOTEDGE_GATEWAYHOSTNAME = 'edgehub';
+// In the case you provided a hostname when creating the local node, please
+// comment the following line of code
+process.env.IOTEDGE_GATEWAYHOSTNAME = 'edgehub';
 
 ModuleClient.fromEnvironment(Protocol, function (err, client) {
   if (err) {
@@ -31,7 +30,7 @@ ModuleClient.fromEnvironment(Protocol, function (err, client) {
       }
     });
 
-    // Create a message and send it every two seconds
+    // Create a message and send it every ten seconds
     setInterval(function () {
       var temperature = (Math.random() * 30); // range: [0, 30]
       var message = new Message(String(temperature));

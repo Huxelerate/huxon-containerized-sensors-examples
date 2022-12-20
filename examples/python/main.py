@@ -7,7 +7,7 @@ from azure.iot.device import IoTHubModuleClient
 LOG_FREQUENCY = 10
 DEFAULT_HOSTNAME = 'edgehub'
 
-class ModifyEnviornment:
+class ModifyEnvironment:
     """
     Helper class to change a given environmental variable to a given value.
 
@@ -31,11 +31,11 @@ class ModifyEnviornment:
 def create_and_connect_client():
     # The SSL verification step can only be verified if the hostname is provided as
     # a domain name, rather than an IP address.
-    # In the case you provided an IP address when creating the Local node, please set
-    # this boolean to True
-    modify = False
+    # In the case you provided a hostname when creating the local node, please
+    # set the following boolean to False
+    modify = True
 
-    with ModifyEnviornment('IOTEDGE_GATEWAYHOSTNAME', modify):
+    with ModifyEnvironment('IOTEDGE_GATEWAYHOSTNAME', modify):
         print("Creating IoT Hub azure client...")
         client = IoTHubModuleClient.create_from_edge_environment()
         print("Client created!")
