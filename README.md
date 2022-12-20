@@ -74,7 +74,8 @@ Where the arguments are:
 - -m, --module    : module name
 - -d, --directory : destination directory where the developement environment will be generated
 
-1. Add your changes to the generated module under the chosen destination directory
+1. Add your changes to the generated module under the chosen destination directory. You can find generated code
+   in the language specified by in the `template` argument
 
 1. Run the module simulation step
 
@@ -87,6 +88,8 @@ Where the arguments are:
 - -d, --directory   : destination directory where the developement environment will be generated
 
 Note that, in order to simulate the module, you need the connection string which can be taken at the [Infrastructure Setup](#) page of the containerized sensor.
+
+1. Build the docker image, using the dockerfiles present in the module's directory.
 
 ### Manual setup
 
@@ -114,6 +117,8 @@ sudo iotedgehubdev setup -c "<connection-string>" -g edgehub
 ```bash
 iotedgehubdev start -d config/deployment.amd64.json -v
 ```
+
+1. Build the docker image, using the dockerfiles present in the module's directory.
 
 Now that everything is setup, you can modify and customize the module with your code, for instance using the code in the provided examples.
 
