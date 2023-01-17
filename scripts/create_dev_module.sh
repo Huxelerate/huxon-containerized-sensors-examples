@@ -77,4 +77,3 @@ mkdir ${WORK_DIR}
 cd ${WORK_DIR}
 
 iotedgedev new -m ${MODULE} -t ${TEMPLATE} .
-iotedgedev build

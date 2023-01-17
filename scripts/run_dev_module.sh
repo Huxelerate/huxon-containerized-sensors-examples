@@ -67,6 +67,9 @@ python3 -m pip install -r requirements.txt
 
 cd ${WORK_DIR}
 
+# Rebuild the module
+iotedgedev build
+
 # The setup step requires the sudo permissions
 sudo iotedgehubdev setup -c ${CONNECTION_STRING} -g 'edgehub'
 iotedgehubdev start -d config/deployment.amd64.json -v
