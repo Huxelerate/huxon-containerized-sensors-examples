@@ -1,16 +1,16 @@
 # Huxon Containerized Sensor Examples
 
-The [Huxon platform](https://huxon.huxelerate.it/docs/index.html) allows to define nodes that include the so-called **Containerized Sensors**.
+[Huxon platform](https://huxon.huxelerate.it/docs/index.html) allows to define nodes that include **Containerized Sensors**.
 
 A **Containerized Sensor** is an element in the infrastructure capable of producing data, similarly to a sensor of a [Sensor Board](https://huxon.huxelerate.it/docs/infrastructure_setup.html#sensor-boards-setup).
 
-Each **containerized sensor** has a selected image that can be deployed and run in a docker container that produces data, making it available in the user code.
+The **Containerized Sensor** can have multiple images, but you have to define the selected image as the one that can be deployed and run in a docker container that produces data, making it available in the user code
 
-The images are none other than Azure IoT Hub modules that can be deployed on an device, therefore we will refer to them as **modules** from now on.
+Images are implemented as Azure IoT Hub modules, therefore, to comply with Azure naming, we will refer to them as **modules** from now on.
 
-The **containerized sensor** is useful when you want to import any existing code that produces data, inside the Huxon platform.
+The **containerized sensor** is useful when you want to import any existing code that produces data, inside the Huxon platform. A full documentation on how to handle **containerized sensor** can be found on [Huxon platform](https://huxon.huxelerate.it/docs/infrastructure_setup.html#containerized-sensor).
 
-Please, in addition to the tutorial in this repository, refer also to the guides provided by Azure to better understand how to use modules: 
+In addition to the tutorial in this repository, refer also to the guides provided by Azure to better understand how to use modules: 
 
 - [C](https://learn.microsoft.com/en-us/azure/iot-edge/tutorial-c-module?view=iotedge-2020-11>)
 - [C#](https://learn.microsoft.com/en-us/azure/iot-edge/tutorial-csharp-module?view=iotedge-2020-11)
@@ -20,14 +20,14 @@ Please, in addition to the tutorial in this repository, refer also to the guides
 
 ## Prerequisites
 
-In order to test and use the containerized sensors, the following prerequisites must be met:
+To test and use the containerized sensors, the following prerequisites must be met:
 
 - **[Huxon account](https://huxon.huxelerate.it/)** to access the Huxon platform
 - **[Docker](https://docs.docker.com/get-docker/)** to build the images for the Azure modules
 - **python** to create and run the IoT edge modules
 - **npm** to create NodeJS-based modules
 
-To develop the modules and test them locally please run the following to correctly setup your system:
+To develop the modules and test them locally please run the following to setup your system:
 
 #### Linux/MacOS
 
@@ -47,15 +47,12 @@ npm install -g generator-azure-iot-edge-module
 
 A module is made of two main components.
 
-1. **Azure IoT interface**: this is the part that makes use of the libraries necessary to communicate using the MQTT protocol, allowing to connect the module with the rest of the IoT network;
-2. **User custom code**: this is the part that the user mainly develops and is responsible for producing/gathering the data.
+1. **Azure IoT interface**: libraries layer to communicate using the MQTT protocol, allowing to connect the module with the rest of the IoT network;
+2. **User custom code**: user-defined code to produce and gather data.
 
-The examples in this repository include a code that shows how to use the Azure IoT library.
-Moreover, the code instantiates a client and starts sending messages using the MQTT protocol to a dedicated output channel.
+The examples in this repository include code that shows how to use the Azure IoT library. It instantiates a client and starts sending messages using the MQTT protocol to a dedicated output channel.
 
-All the low-level steps to handle the MQTT communication are handled by the Azure libraries.
-
-To develop your own module then, you will need to mainly focus on the user custom code part.
+As an excercise, you can customize the user-defined code to change the behavior of this example.
 
 The examples provided are currently developed in the following languages:
 
@@ -65,7 +62,7 @@ The examples provided are currently developed in the following languages:
 
 ## Module Development
 
-You can develop your own module with the aid of the Azure IoT libraries, which can be used to:
+The steps to develop your own module using Azure IoT libraries are:
 
 - [Create](#create) a new module
 - [Customize](#customize) the module
@@ -87,11 +84,11 @@ The result is a directory with a basic example and an initial code to begin with
 
 #### Customize
 
-At this stage you can develop your own module logic and use the provided functions, in the respective chosen language, to initiate and communicate with the rest of the IoT infrastructure, making use of the Azure IoT low-level libraries.
+At this stage you can develop your own module logic and use the provided functions to initiate and communicate with the rest of the IoT infrastructure, making use of the Azure IoT low-level libraries.
 
 #### Build
 
-Once you are ready to test your module, you first need to run the build step, which generates a docker image that can be deployed on an IoT edge node, or simulated.
+Once you are ready to test your module, you first need to run the build step to a docker image that can be deployed on an IoT edge node, or simulated.
 
 ```bash
 iotedgedev build
