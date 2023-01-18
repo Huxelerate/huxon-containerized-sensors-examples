@@ -88,7 +88,7 @@ At this stage you can develop your own module logic and use the provided functio
 
 #### Build
 
-Once you are ready to test your module, you first need to run the build step to a docker image that can be deployed on an IoT edge node, or simulated.
+Once you are ready to test your module, you first need to run the build step to generate a docker image that can be deployed on an IoT edge node, or simulated.
 
 ```bash
 iotedgedev build
