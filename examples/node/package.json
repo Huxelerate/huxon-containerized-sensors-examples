@@ -1,0 +1,13 @@
+{
+  "name": "huxon-nodejs-edge-sample",
+  "description": "Sample code to use Node.js as a containerized sensor in the Huxon platform",
+  "author": "Huxelerate s.r.l.",
+  "dependencies": {
+    "azure-iot-device": "^1.7.1",
+    "azure-iot-device-amqp": "^1.7.1",
+    "azure-iot-device-http": "^1.7.1",
+    "azure-iot-device-mqtt": "^1.7.1",
+    "es5-shim": "^4.5.9",
+    "uuid": "^3.3.0"
+  }
+}
